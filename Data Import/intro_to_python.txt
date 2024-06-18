@@ -1,0 +1,4 @@
+CS, 38, 30, 8
+Mathematics, 25,8, 17
+Engineering, 32,10, 22
+Literature, 7, 5, 2
