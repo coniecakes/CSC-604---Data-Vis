@@ -20,64 +20,57 @@ csv_list = list(csvdata)
 #print (csv_list[2][0])
 # #get data fom the csv lists and put them into our data lists
 
-for elem in csv_list:
-    print(elem)
-    date.append(elem[0])
-    stock_high.append(float(elem[1]))
-    stock_open.append(float(elem[2]))
-    stock_low.append(float(elem[3]))
+# for elem in csv_list:
+#     print(elem)
+#     date.append(elem[0])
+#     stock_high.append(float(elem[1]))
+#     stock_open.append(float(elem[2]))
+#     stock_low.append(float(elem[3]))
+date = csv_list[0]  # The first row contains the dates
+stock_high = [float(value) for value in csv_list[2]]  # The second row contains the stock high values
+stock_low = [float(value) for value in csv_list[1]]   # The third row contains the stock low values
+stock_open = [float(value) for value in csv_list[3]]  # The fourth row contains the stock open values
 file_handle.close()
-# print(date)
-# print (date)
-# style.use ('ggplot')
-# # fig1 = plt.figure(1)
-# plt.subplot(3,1,1)
-# line1 = plt.plot(date, stock_high,
-#                  color = 'green',
-#                  linestyle = 'dashed',
-#                  marker = 's',
-#                  linewidth = 3,
-#                  label = 'Stock High'
-#                  )
-# plt.legend()
-# plt.xlabel ('Value')
-# plt.ylabel ("Date")
-# # plt.title ('Majors vs Number of students')
-# plt.subplot(312)
-# line2 = plt.plot(date, stock_open,
-#                  color = 'red',
-#                  linestyle = '-',
-#                  marker = 'o',
-#                  linewidth = 2,
-#                  label = 'Stock Open'
-#                  )
-# plt.xlabel ('Value')
-# plt.ylabel ("Date")
-# #plt.title ('Majors vs Number of women')
-# plt.legend()
-#
-# plt.subplot(3,1,3)
-# line3 = plt.plot(date, stock_low,
-#                  color = 'yellow',
-#                  linestyle = '-',
-#                  marker = 'v',
-#                  linewidth = 2,
-#                  label = 'Stock Low'
-#                  )
-# plt.legend()
-# plt.xlabel ('Value')
-# plt.ylabel ("Date")
-# plt.subplot(3,1,3)
-# line4 = plt.plot(date, stock_low,
-#                  color = 'yellow',
-#                  linestyle = '-',
-#                  marker = 'v',
-#                  linewidth = 2,
-#                  label = 'Stock Low'
-#                  )
-# plt.legend()
-# plt.xlabel ('Value')
-# plt.ylabel ("Date")
-#
-#
-# plt.show()
+
+style.use ('ggplot')
+
+plt.xlabel ('Date')
+plt.ylabel ("Stock Value")
+# plt.title ('Majors vs Number of students')
+plt.subplot(3,1,1)
+line2 = plt.plot(date, stock_open,
+                 color = 'black',
+                 linestyle = '--',
+                 marker = '*',
+                 linewidth = 2,
+                 label = 'Stock Open'
+                 )
+plt.xlabel ('Date')
+plt.ylabel ("Stock Value")
+plt.title ('Stock Values Over Time')
+plt.legend()
+
+plt.subplot(3,1,2)
+line1 = plt.plot(date, stock_high,
+                 color = 'green',
+                 linestyle = '--',
+                 marker = '*',
+                 linewidth = 3,
+                 label = 'Stock High'
+                 )
+plt.xlabel ('Date')
+plt.ylabel ("Stock Value")
+plt.legend()
+
+plt.subplot(3,1,3)
+line3 = plt.plot(date, stock_low,
+                 color = 'red',
+                 linestyle = '--',
+                 marker = '*',
+                 linewidth = 2,
+                 label = 'Stock Low'
+                 )
+plt.legend()
+plt.xlabel ('Date')
+plt.ylabel ("Stock Value")
+plt.show()
