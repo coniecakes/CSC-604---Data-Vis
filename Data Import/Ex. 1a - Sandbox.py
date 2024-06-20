@@ -17,21 +17,23 @@ csvdata = csv.reader(file_handle)
 csv_list = list(csvdata)
 # print (csv_list)
 
-#print (csv_list[2][0])
-# #get data fom the csv lists and put them into our data lists
-
+print(csv_list[2][0])
+print(csv_list[0])
+# # #get data fom the csv lists and put them into our data lists
+#
 # for elem in csv_list:
-#     print(elem)
-#     date.append(elem[0])
-#     stock_high.append(float(elem[1]))
-#     stock_open.append(float(elem[2]))
-#     stock_low.append(float(elem[3]))
+#     # print(elem)
+#     date.append(csv_list[0])
+#     stock_high.append(float(elem) for elem in csv_list[2])
+#     stock_open.append(float(elem) for elem in csv_list[1])
+#     stock_low.append(float(elem) for elem in csv_list[3])
+
 date = csv_list[0]  # The first row contains the dates
 stock_high = [float(value) for value in csv_list[2]]  # The second row contains the stock high values
 stock_low = [float(value) for value in csv_list[1]]   # The third row contains the stock low values
 stock_open = [float(value) for value in csv_list[3]]  # The fourth row contains the stock open values
 file_handle.close()
-
+#
 style.use ('ggplot')
 
 plt.xlabel ('Date')
